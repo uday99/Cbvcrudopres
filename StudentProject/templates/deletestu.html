@@ -1,0 +1,49 @@
+{% extends 'common.html' %}
+{% block content %}
+
+
+    <h1 style="color: bisque;text-align: center"> Delete Confirmation</h1>
+    <form method="post">
+    {% csrf_token %}
+    <table border="2" align="center">
+
+    <tr>
+        <td>Rollno</td>
+        <td>{{ object.rno }}</td>
+    </tr>
+        <tr>
+            <td>First name</td>
+                    <td>{{ object.first_name }}</td>
+
+
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>{{ object.last_name }}</td>
+        </tr>
+
+        <tr>
+            <td>Father Name</td>
+            <td>{{ object.father_name }}</td>
+        </tr>
+
+        <tr>
+            <td>gender</td>
+            <td>{{ object.gender }}</td>
+
+        </tr>
+        <tr>
+        <td>course</td>
+        <td>{{ object.course }}</td>
+    </tr>
+        <tr>
+            <td>Address</td>
+        <td>{{ object.address }}</td>
+    </tr>
+<tr>
+    <td ><button type="submit" class="btn btn-danger">confirmDelete</button></td>
+    <td><input type="submit" value="Cancel" class="btn btn-info" formaction="{% url 'main' %}" formmethod="get"></td>
+</tr>
+    </table>
+    </form>
+{% endblock %}

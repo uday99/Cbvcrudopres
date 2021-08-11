@@ -1,0 +1,18 @@
+{% extends 'common.html' %}
+{% block content %}
+    {% load static %}
+
+    <h1 align="center">Update student Details</h1>
+    <form method="post">
+    {% csrf_token %}
+    <table align="center">
+        <tr>{{ form}}</tr>
+        <tr>
+            <th colspan="2"><button type="submit" class="btn btn-primary">SaveUpdate</button></th>
+        </tr>
+    </table>
+
+    </form>
+
+
+{% endblock %}

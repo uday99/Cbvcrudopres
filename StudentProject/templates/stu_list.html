@@ -1,0 +1,74 @@
+{% extends 'common.html' %}
+
+{% block content %}
+
+    <h1 align="center">List Of Students<br></h1>
+
+    <h3 align="center"><a href="{% url 'addstu' %}" class="btn btn-success">Add Student</a></h3>
+
+    {% if object_list %}
+
+        <table align="center" border="2" width="800">
+    <thead>
+    <tr style="background-color: blue">
+        <th width="250">RollNo</th>
+        <th width="250">First Name</th>
+        <th width="250">Last Name</th>
+        <th width="250">Father Name</th>
+        <th width="250">Gender</th>
+        <th width="250">Course</th>
+        <th width="250">Address</th>
+        <th width="250">Update</th>
+        <th width="250">Delete</th>
+    </tr>
+
+    </thead>
+    <tbody>
+    {% for object in object_list %}
+        <tr>
+        <th>{{ object.rno }}</th>
+        <th>{{ object.first_name}}</th>
+        <th>{{ object.last_name }}</th>
+        <th>{{ object.father_name }}</th>
+        <th>{{ object.gender }}</th>
+        <th>{{ object.course }}</th>
+            <th>{{ object.address }}</th>
+        <th><a href="{% url 'update_stu' object.rno %}" class="btn btn-warning">Update</a></th>
+
+        <th><a href="{% url 'delete_stu' object.rno %}" class="btn btn-danger">Delete</a></th>
+
+
+
+        </tr>
+
+
+
+    {% endfor %}
+
+
+    </tbody>
+
+
+    </table>
+        {% else %}
+
+        <h1 style="color: red;text-align: center">No records found...!</h1>
+    {% endif %}
+
+                    {% if messages %}
+                        {% for x in messages %}
+                            <h2 style="color: greenyellow;text-align: center">{{ x }}</h2>
+
+                        {% endfor %}
+
+                    {% endif %}
+
+
+
+
+
+
+
+
+
+{% endblock %}
